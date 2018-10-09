@@ -40,4 +40,10 @@
       <text>数据插入</text>
     </navigator>
   </view>
+
+  <view class="uploader">
+    <navigator url="../project/show/show" open-type="navigate" class="uploader-text">
+      <text>show</text>
+    </navigator>
+  </view>
 </view>

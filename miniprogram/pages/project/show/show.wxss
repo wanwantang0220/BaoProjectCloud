@@ -1,0 +1,23 @@
+
+.view_item{
+  margin: 20rpx;
+  background: white;
+}
+.view_item_child{
+  width: 100%-40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-bottom: 1px solid gainsboro;
+
+}
+.item_name{
+  align-items: center;
+  justify-content: left;
+}
+.item_type{
+  align-items: center;
+  justify-content: right;
+}
