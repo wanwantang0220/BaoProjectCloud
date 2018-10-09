@@ -3,12 +3,7 @@
 
   <!-- 用户 openid -->
   <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
     <view>
       <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
     </view>
@@ -40,4 +35,9 @@
     </navigator>
   </view>
 
+  <view class="uploader">
+    <navigator url="../project/controller/controller" open-type="navigate" class="uploader-text">
+      <text>数据插入</text>
+    </navigator>
+  </view>
 </view>
