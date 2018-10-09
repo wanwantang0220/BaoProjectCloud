@@ -1,0 +1,46 @@
+/* miniprogram/pages/project/controller/controller.wxss */
+
+.contain {
+  width: 750rpx;
+  background: #fff;
+}
+
+.view_input {
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+  height: 52px;
+  line-height: 52px;
+  font-size: 34rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  margin-left: 20rpx;
+  align-items: center;
+  height: 52px;
+  line-height: 52px;
+}
+
+.view_commit {
+  display: flex;
+  width: 750rpx;
+  height: 52px;
+  line-height: 52px;
+  margin-top: 100rpx;
+  background: #007aff;
+  /* border-radius: 50rpx; */
+  align-items: center;
+  justify-content: center;
+}
+.view_text{
+  font-size: 20px;
+  color: #ffffff;
+}
+.view_info{
+   width: 750rpx;
+   margin-top: 20rpx;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
