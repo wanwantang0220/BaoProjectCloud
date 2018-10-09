@@ -6,14 +6,30 @@ Page({
    */
   data: {
     name: '',
-    type: '',
-    desc: ''
+    mtype: '',
+    desc: '',
+    flag: '1', //1:新增  2:修改
+    conId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    console.log("options", options.data);
+    if (options != null && options.data != undefined) {
+      let data = JSON.parse(options.data);
+      this.setData({
+        conId: data._id,
+        name: data.name,
+        mtype: data.type,
+        desc: data.desc,
+        flag: 2
+      })
+    }
+    console.log("name", this.data.name);
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -31,7 +47,7 @@ Page({
   },
   bindTypeInput: function(e) {
     this.setData({
-      type: e.detail.value
+      mtype: e.detail.value
     })
   },
   bindDescInput: function(e) {
@@ -42,45 +58,55 @@ Page({
   formReset: function(e) {
     this.setData({
       name: '',
-      type: '',
+      mtype: '',
       desc: ''
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {},
+  commit: function(e) {
+    if (this.data.flag == 1) {
+      this.onWrite()
+    } else if (this.data.flag == 2) {
+      this.onUpdate()
+    }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {},
+  },
+  onUpdate: function() {
+    let couid = this.data.conId
+    let name = this.data.name
+    let mtype = this.data.mtype
+    let desc = this.data.desc
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {},
-
-  onWrite: function(e) {
+    const db = wx.cloud.database()
+    db.collection('cars').doc(couid).update({
+      data: {
+        name: name,
+        type: mtype,
+        desc: desc
+      },
+      success: res => {
+        wx.showToast({
+          title: '修改记录成功',
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      fail: err => {
+        icon: 'none',
+        console.error('[数据库] [更新记录] 失败：', err)
+      }
+    })
+  },
+  onWrite: function() {
     var that = this;
     const db = wx.cloud.database()
     let name = this.data.name
-    let type = this.data.type
+    let mtype = this.data.mtype
     let desc = this.data.desc
     db.collection('cars').add({
       data: {
         name: name,
-        type: type,
+        type: mtype,
         desc: desc
       },
       success: res => {

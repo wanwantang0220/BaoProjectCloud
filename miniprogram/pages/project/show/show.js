@@ -100,7 +100,12 @@ Page({
     })
 
   },
-  onUpdate: function(data) {},
+  onUpdate: function(data) {
+    let newdata = JSON.stringify(data.index)
+    wx.navigateTo({
+      url: '../add_car/add_car?data='+newdata,
+    })
+  },
   onDelete: function(data) {
     wx.showToast({
       title: data.index.name
