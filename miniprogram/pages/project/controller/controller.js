@@ -13,7 +13,8 @@ Page({
     counterId: '',
     name: '',
     type: '',
-    desc: ''
+    desc: '',
+    sum: ''
   },
 
   /**
@@ -28,7 +29,27 @@ Page({
   },
 
   /** 生命周期函数--监听页面初次渲染完成*/
-  onReady: function() {},
+  onReady: function() {
+    let that = this;
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'arthurSlog_getInfo',
+      // 传给云函数的参数
+      data: {
+        a: 7,
+        b: 2,
+      },
+      success: function(res) {
+        console.log(res.result) // 3
+        that.setData({
+          sum: res.result
+        })
+
+      },
+      fail: console.error
+    })
+  },
 
   /*** 生命周期函数--监听页面显示*/
   onShow: function() {},
@@ -47,7 +68,7 @@ Page({
       desc: e.detail.value
     })
   },
-  formReset:function(e){
+  formReset: function(e) {
     this.setData({
       name: '',
       type: '',
@@ -109,7 +130,7 @@ Page({
         console.error('[数据库] [新增记录] 失败：', err)
       }
     })
-    
+
   },
   onUpdate: function(e) {
     const db = wx.cloud.database()

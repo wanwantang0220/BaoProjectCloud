@@ -1,28 +1,34 @@
 <!--miniprogram/pages/project/controller/controller.wxml-->
 <view class='contain'>
 
-  <form   bindreset="formReset">
+  <view>
+    {{sum}}
+  </view>
+
+  <form bindreset="formReset">
     <view class='view_input'>
       <view>name </view>
-      <input class='input' placeholder='内容' bindinput='bindNameInput' ></input>
+      <input class='input' placeholder='内容' bindinput='bindNameInput'></input>
     </view>
 
     <view class='view_input'>
       <view>type </view>
-      <input class='input' placeholder='内容' bindinput='bindTypeInput' ></input>
+      <input class='input' placeholder='内容' bindinput='bindTypeInput'></input>
     </view>
 
     <view class='view_input'>
       <view>desc </view>
-      <input class='input' placeholder='内容' bindinput='bindDescInput' ></input>
+      <input class='input' placeholder='内容' bindinput='bindDescInput'></input>
     </view>
 
     <!-- <view class='view_commit' bindtap="onWrite" formType="reset">
       <view class='view_text'>提交</view>
     </view> -->
-     <button bindtap="onWrite" formType="submit">提交 </button>
+    <button bindtap="onWrite" formType="submit">提交 </button>
   </form>
 
+
+  <image src='cloud://tww-b2adbf.7477-tww-b2adbf/my-image1.png'></image>
 
   <view class='view_commit' bindtap="onRead">
     <view class='view_text'>读取</view>

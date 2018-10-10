@@ -9,7 +9,8 @@ Page({
     mtype: '',
     desc: '',
     flag: '1', //1:新增  2:修改
-    conId: ''
+    conId: '',
+    fileID: '',
   },
 
   /**
@@ -77,6 +78,7 @@ Page({
     let desc = this.data.desc
 
     const db = wx.cloud.database()
+
     db.collection('cars').doc(couid).update({
       data: {
         name: name,
@@ -103,27 +105,87 @@ Page({
     let name = this.data.name
     let mtype = this.data.mtype
     let desc = this.data.desc
-    db.collection('cars').add({
-      data: {
-        name: name,
-        type: mtype,
-        desc: desc
+    let fileid = this.data.fileID
+
+    if (fileid == '' || name == '' || mtype == '' || desc == '') {
+      return
+    } else {
+      db.collection('cars').add({
+        data: {
+          name: name,
+          type: mtype,
+          desc: desc,
+          fileid: fileid
+        },
+        success: res => {
+          // 在返回结果中会包含新创建的记录的 _id
+          wx.showToast({
+            title: '新增记录成功',
+          })
+          wx.navigateBack({
+            delta: 1
+          })
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '新增记录失败'
+          })
+          console.error('[数据库] [新增记录] 失败：', err)
+        }
+      })
+    }
+  },
+  // 上传图片
+  doUpload: function() {
+    let that = this
+    // 选择图片
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function(res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+
+        const filePath = res.tempFilePaths[0]
+        // 上传图片
+        const cloudPath = 'my-image1' + filePath.match(/\.[^.]+?$/)[0]
+        wx.cloud.uploadFile({
+          cloudPath,
+          filePath,
+          success: res => {
+            wx.showToast({
+              title: '[上传文件] 成功',
+            })
+
+            that.setData({
+              fileID: res.fileID
+            })
+            // app.globalData.fileID = res.fileID
+            // app.globalData.cloudPath = cloudPath
+            // app.globalData.imagePath = filePath
+
+            // wx.navigateTo({
+            //   url: '../storageConsole/storageConsole'
+            // })
+          },
+          fail: e => {
+            console.error('[上传文件] 失败：', e)
+            wx.showToast({
+              icon: 'none',
+              title: '上传失败',
+            })
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
+
       },
-      success: res => {
-        // 在返回结果中会包含新创建的记录的 _id
-        wx.showToast({
-          title: '新增记录成功',
-        })
-        wx.navigateBack({
-          delta: 1
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '新增记录失败'
-        })
-        console.error('[数据库] [新增记录] 失败：', err)
+      fail: e => {
+        console.error(e)
       }
     })
   },
