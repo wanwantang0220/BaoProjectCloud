@@ -164,6 +164,7 @@ Page({
             that.setData({
               fileID: res.fileID
             })
+            console.log("fileID", res.fileID)
             // app.globalData.fileID = res.fileID
             // app.globalData.cloudPath = cloudPath
             // app.globalData.imagePath = filePath

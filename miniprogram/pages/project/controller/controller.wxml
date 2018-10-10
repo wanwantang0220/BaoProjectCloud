@@ -4,7 +4,9 @@
   <view>
     {{content}}
   </view>
-
+  <view>
+    {{sum}}
+  </view>
   <form bindreset="formReset">
     <view class='view_input'>
       <view>name </view>

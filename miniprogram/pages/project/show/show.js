@@ -7,7 +7,8 @@ Page({
    */
   data: {
     sheetList: ["新增", "修改", "删除"],
-    mlist: []
+    mlist: [],
+    fileid:''
   },
 
   /**
