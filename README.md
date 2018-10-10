@@ -12,6 +12,6 @@
 
 
 图例：<br />
-<img  src="https://github.com/wanwantang0220/ReactNativeTrain/blob/master/image/20180410155618.jpg"/> 
-<img  src="https://github.com/wanwantang0220/ReactNativeTrain/blob/master/image/20180410155628.jpg"/> 
-
+<img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard.png"/> 
+<img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard1.png"/> 
+<img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard2.png"/> 
