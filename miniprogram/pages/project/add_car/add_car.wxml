@@ -2,18 +2,18 @@
 
   <form bindreset="formReset">
     <view class='view_input'>
-      <view>name </view>
-      <input class='input' placeholder='内容' bindinput='bindNameInput' value='{{name}}'></input>
+      <view class='view_text'>name </view>
+      <input class='input' placeholder='请输入name ' bindinput='bindNameInput' value='{{name}}'></input>
     </view>
 
     <view class='view_input'>
-      <view>type </view>
-      <input class='input' placeholder='内容' bindinput='bindTypeInput' value='{{mtype}}'></input>
+      <view class='view_text'>type </view>
+      <input class='input' placeholder='请输入type' bindinput='bindTypeInput' value='{{mtype}}'></input>
     </view>
 
     <view class='view_input'>
-      <view>desc </view>
-      <input class='input' placeholder='内容' bindinput='bindDescInput' value='{{desc}}'></input>
+      <view class='view_text'>desc </view>
+      <input class='input' placeholder='请输入desc' bindinput='bindDescInput' value='{{desc}}'></input>
     </view>
 
     <!-- 上传图片 -->

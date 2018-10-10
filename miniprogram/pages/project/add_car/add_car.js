@@ -1,6 +1,6 @@
-// miniprogram/pages/project/add_car/add_car.js
-Page({
+import util from '../../../util/utils.js';
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -139,6 +139,7 @@ Page({
   // 上传图片
   doUpload: function() {
     let that = this
+    var time = util.formatTime(new Date());
     // 选择图片
     wx.chooseImage({
       count: 1,
@@ -151,7 +152,7 @@ Page({
 
         const filePath = res.tempFilePaths[0]
         // 上传图片
-        const cloudPath = 'my-image1' + filePath.match(/\.[^.]+?$/)[0]
+        const cloudPath = time + filePath.match(/\.[^.]+?$/)[0]
         wx.cloud.uploadFile({
           cloudPath,
           filePath,

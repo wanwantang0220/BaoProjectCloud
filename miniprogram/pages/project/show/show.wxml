@@ -2,10 +2,14 @@
 <view>
 
   <view class='view_item' wx:for="{{mlist}}" wx:key="item" wx:for-index="index">
-    <view class='view_item_child' bindtap='bindTap' data-index="{{item}}" >
-      <view class='item_name'>{{item.name}}</view>
-      <view class='item_type'>{{item.type}}</view>
-      <!-- <view>{{item.desc}}</view> -->
+    <view class='view_item_child' bindtap='bindTap' data-index="{{item}}">
+      <image class='view_item_child_image' src='{{item.fileid}}'></image>
+      <view class='view_item_child_right'>
+        <view class='item_name'>{{item.name}}</view>
+        <view class='item_type'>{{item.desc}}</view>
+        <!-- <view>{{item.desc}}</view> -->
+      </view>
+
     </view>
   </view>
 </view>

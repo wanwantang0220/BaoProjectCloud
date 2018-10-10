@@ -2,7 +2,7 @@
 <view class='contain'>
 
   <view>
-    {{sum}}
+    {{content}}
   </view>
 
   <form bindreset="formReset">

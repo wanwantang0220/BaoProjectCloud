@@ -1,4 +1,5 @@
 // miniprogram/pages/project/controller/controller.js
+import util from '../../../util/utils.js';
 
 const app = getApp()
 
@@ -14,7 +15,8 @@ Page({
     name: '',
     type: '',
     desc: '',
-    sum: ''
+    sum: '',
+    content: ''
   },
 
   /**
@@ -26,6 +28,14 @@ Page({
         openid: app.globalData.openid
       })
     }
+    // 调用函数时，传入new Date()参数，返回值是日期和时间    
+    var time = util.formatTime(new Date());
+    // 再通过setData更改Page()里面的data，动态更新页面的数据
+    this.setData({
+      content: time
+    });
+
+
   },
 
   /** 生命周期函数--监听页面初次渲染完成*/

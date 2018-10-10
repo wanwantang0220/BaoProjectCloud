@@ -1,23 +1,53 @@
-
-.view_item{
+.view_item {
   margin: 20rpx;
   background: white;
 }
-.view_item_child{
+
+.view_item_child {
   width: 100%-40rpx;
+  height: 120rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 20rpx;
+  justify-content: flex-start;
+  padding: 10rpx;
   border-bottom: 1px solid gainsboro;
-
 }
-.item_name{
-  align-items: center;
+
+.view_item_child_image {
+  width: 80rpx;
+  height: 100%;
+  flex: 1;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+
+.view_item_child_right {
+  width: 600rpx;
+  flex: 3;
+  padding: 20rpx;
+  flex-direction: column;
+  display: flex;
   justify-content: left;
 }
-.item_type{
+
+.view_item_child::after {
+  content: " ";
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  margin-top: -8rpx;
+  right: 28rpx;
+}
+
+.item_name {
+  text-align: left
+}
+
+.item_type {
   align-items: center;
   justify-content: right;
 }
