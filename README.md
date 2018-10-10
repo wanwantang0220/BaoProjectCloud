@@ -14,4 +14,4 @@
 图例：<br />
 <img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard.png"/> 
 <img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard1.png"/> 
-<img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard2.png"/> 
+<img  src="https://github.com/wanwantang0220/BaoProjectCloud/blob/master/images/clipboard3.png"/> 
