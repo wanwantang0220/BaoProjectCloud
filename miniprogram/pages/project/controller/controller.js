@@ -1,5 +1,11 @@
 // miniprogram/pages/project/controller/controller.js
 import util from '../../../util/utils.js';
+//引入图片预加载组件
+const ImgLoader = require('../../../template/img-loader/img-loader.js')
+//缩略图 80x50 3KB
+const imgUrlThumbnail = 'http://storage.360buyimg.com/mtd/home/lion1483683731203.jpg'
+//原图 3200x2000 1.6MB
+const imgUrlOriginal = 'http://storage.360buyimg.com/mtd/home/lion1483624894660.jpg'
 
 const app = getApp()
 
@@ -16,7 +22,9 @@ Page({
     type: '',
     desc: '',
     sum: '',
-    content: ''
+    content: '',
+    msg: '',
+    imgUrl: ''
   },
 
   /**
@@ -34,7 +42,8 @@ Page({
     this.setData({
       content: time
     });
-
+    //初始化图片预加载组件
+    this.imgLoader = new ImgLoader(this)
 
   },
 
@@ -186,7 +195,30 @@ Page({
         title: '无记录可删，请见创建一个记录',
       })
     }
+  },
+  imageOnLoad(ev) {
+    console.log(`图片加载成功，width: ${ev.detail.width}; height: ${ev.detail.height}`)
+  },
+  imageOnLoadError() {
+    console.log('图片加载失败')
+  },
+  loadImage() {
+    //加载缩略图
+    this.setData({
+      msg: '大图正拼命加载..',
+      imgUrl: imgUrlThumbnail
+    })
+    //同时对原图进行预加载，加载成功后再替换
+    this.imgLoader.load(imgUrlOriginal, (err, data) => {
+      console.log('图片加载完成', err, data.src)
+      this.setData({
+        msg: '大图加载完成~'
+      })
+      if (!err)
+        this.setData({
+          imgUrl: data.src
+        })
+    })
   }
-
 
 })

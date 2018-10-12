@@ -11,7 +11,8 @@
     "pages/project/home/home",
     "pages/project/controller/controller",
     "pages/project/show/show",
-    "pages/project/add_car/add_car"
+    "pages/project/add_car/add_car",
+    "pages/project/muli_load/muli_load"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
