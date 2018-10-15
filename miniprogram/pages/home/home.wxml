@@ -5,12 +5,23 @@
     <image class="image_search" src='../../../images/icon_search2.png' mode='scaleToFill'></image>
   </view>
   <swiper class='view_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{carsList}}" wx:key="">
+    <block wx:for="{{banners}}" wx:key="">
       <swiper-item class='swiper'>
         <view class='view_center'>
-          <image src='{{item.image_url}}' mode='scaleToFill'></image>
+          <image class='image' src='{{item.fileid}}' mode='scaleToFill'></image>
         </view>
       </swiper-item>
     </block>
   </swiper>
+
+  <view class='view_cate'>
+    <view class='view_cate_item' wx:for="{{cates}}" wx:for-item="item" wx:key="{{item}}">
+      <image class='view_cate_item_image' src='../../images/launch3.png'></image>
+      <view class='view_cate_item_text'>{{item.title}}</view>
+    </view>
+
+
+
+  </view>
+
 </view>

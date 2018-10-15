@@ -97,14 +97,14 @@ Page({
     const mtype = this.data.mtype;
     const fileid = this.data.fileID
 
-    if (fileid == '' || name == '' || mtype == '' || desc == '') {
+    if (fileid == '' || title == '' || mtype == '' ) {
       wx.showLoading({
         title: '不能为空',
       })
       return 
     } else{
       const db = wx.cloud.database()
-      db.collection('').add({
+      db.collection('banner').add({
         data:{
           title: title,
           mtype:mtype,
@@ -114,6 +114,7 @@ Page({
           wx.showToast({
             title: '添加成功',
           })
+          wx.navigateBack()
         }
       })
 
