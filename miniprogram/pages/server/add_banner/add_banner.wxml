@@ -1,0 +1,17 @@
+<view>
+  <view class="uploader-text" bindtap="doUpload">
+    <text>上传图片</text>
+  </view>
+
+
+  <view>
+    <text class='view_title'>title</text>
+    <input class='view_input' placeholder='请输入title' bindinput='bindTitleInput'></input>
+  </view>
+  <view>
+    <text class='view_title'>type</text>
+    <input class='view_input' placeholder='请输入type' bindinput='bindTypeInput'></input>
+  </view>
+
+  <button bindtap='commit'>提交</button>
+</view>

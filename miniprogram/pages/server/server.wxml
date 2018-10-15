@@ -1,0 +1,3 @@
+<view>
+  <button bindtap='bindTap'>banner添加</button>
+</view>

@@ -1,0 +1,24 @@
+.uploader-text, .tunnel-text {
+  width: 100%;
+  line-height: 52px;
+  font-size: 34rpx;
+  color: #007aff;
+  margin: 20rpx;
+}
+
+.view_title {
+  width: 100%;
+  height: 100rpx;
+  background: red;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15rpx;
+}
+.view_input{
+  width: 100%;
+  height: 100rpx;
+  background: red;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1px;
+}

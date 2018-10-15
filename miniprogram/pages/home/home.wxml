@@ -1,0 +1,16 @@
+<view class='contain'>
+  <view class='view_search'>
+    <input class="input_search" placeholder='请输入搜索内容'></input>
+    <view class='line'></view>
+    <image class="image_search" src='../../../images/icon_search2.png' mode='scaleToFill'></image>
+  </view>
+  <swiper class='view_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{carsList}}" wx:key="">
+      <swiper-item class='swiper'>
+        <view class='view_center'>
+          <image src='{{item.image_url}}' mode='scaleToFill'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

@@ -10,7 +10,8 @@
 	},
 	"appid": "wx406de325b49189f1",
 	"projectname": "BaoProject",
-	"libVersion": "2.2.5",
+	"libVersion": "2.3.0",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,
